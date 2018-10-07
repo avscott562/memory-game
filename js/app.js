@@ -15,7 +15,7 @@
  var secondCard;
 
 //need function to turn over card
-function turnCard() {  
+function turnCard() {
   if(!this.classList.contains('match' || 'open' || 'show')) {
     this.classList.add('open', 'show');
     this.removeEventListener('click', turnCard);
@@ -29,6 +29,12 @@ function turnCard() {
     console.log("second card " + secondCard);
   }
 }
+
+//need fuction for checking if cards match
+function compare() {
+
+}
+
 
 //add eventlistener to turn over card
  cards.forEach(function(card) {
@@ -51,7 +57,6 @@ function shuffle(array) {
     return array;
 }
 
-//need fuction for checking if cards match
 
 //need winner popup modal function
 
