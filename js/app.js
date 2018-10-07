@@ -14,10 +14,14 @@
 
 //need function to turn over card
 function turnCard() {
-  this.classList.add('open', 'show');
-  console.log(this);
+  this.classList.remove('open', 'show');
+  if(!this.classList.contains('match')) {
+    this.classList.add('open', 'show');
+    console.log(this);
+  }
 }
 
+//add eventlistener to turn over card
  cards.forEach(function(card) {
    card.addEventListener('click', turnCard)
  });
