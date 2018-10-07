@@ -11,13 +11,22 @@
  */
 
  var cards = document.querySelectorAll('.card');
+ var firstCard;
+ var secondCard;
 
 //need function to turn over card
-function turnCard() {
-  this.classList.remove('open', 'show');
-  if(!this.classList.contains('match')) {
+function turnCard() {  
+  if(!this.classList.contains('match' || 'open' || 'show')) {
     this.classList.add('open', 'show');
+    this.removeEventListener('click', turnCard);
+    if(firstCard === ""){
+      firstCard = this;
+    } else {
+      secondCard = this;
+    }
     console.log(this);
+    console.log("first card " + firstCard);
+    console.log("second card " + secondCard);
   }
 }
 
