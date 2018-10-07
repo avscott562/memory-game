@@ -11,8 +11,20 @@
  */
 
  var cards = document.querySelectorAll('.card');
+ var game = document.querySelector('.deck');
 
-//need function to turn over card
+//need restart button and function
+// function resetGame() {
+//   console.log(cards.classList);
+  // cards.classList.remove('open');
+  // cards.classList.remove('show');
+  // cards.classList.remove('match');
+  // shuffle(game);
+}
+
+resetGame();
+
+//function to turn over unmatched cards
 function turnCard() {
   this.classList.remove('open', 'show');
   if(!this.classList.contains('match')) {
@@ -45,8 +57,6 @@ function shuffle(array) {
 //need fuction for checking if cards match
 
 //need winner popup modal function
-
-//need restart button and function
 
 //need star rating function
 
