@@ -10,6 +10,19 @@
  *   - add each card's HTML to the page
  */
 
+ var cards = document.querySelectorAll('.card');
+
+//need function to turn over card
+function turnCard() {
+  this.classList.add('open', 'show');
+  console.log(this);
+}
+
+ cards.forEach(function(card) {
+   card.addEventListener('click', turnCard)
+ });
+
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -24,6 +37,18 @@ function shuffle(array) {
 
     return array;
 }
+
+//need fuction for checking if cards match
+
+//need winner popup modal function
+
+//need restart button and function
+
+//need star rating function
+
+//need timer function to start and stop when game begins and ends
+
+//need move counter function
 
 
 /*
