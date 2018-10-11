@@ -12,31 +12,52 @@
 
  var cards = document.querySelectorAll('.card');
  var firstCard;
+ var firstCardClass;
  var secondCard;
+ var secondCardClass;
  var cardCount = 0;
 
-//need function to turn over card
+//function to turn over cards and log them
 function turnCard() {
+  //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
+    //flip card
     this.classList.add('open', 'show');
+    //disable clicking so same card cant be clicked twice
     this.removeEventListener('click', turnCard);
-    console.log(cardCount)
     if(cardCount === 0){
+      //set card as first card flipped
       firstCard = this;
       cardCount = cardCount + 1;
     } else if (cardCount === 1){
-      secondCard = this;      
+      //set card as second card flipped
+      secondCard = this;
+      compare()
     }
-    console.log(this);
-    console.log(firstCard);
-    console.log(cardCount);
-    console.log(secondCard);
   }
 }
 
-//need fuction for checking if cards match
+//fuction to check if cards match
 function compare() {
-
+  //grab icon for each card
+  firstCardClass = firstCard.querySelector('i');
+  secondCardClass = secondCard.querySelector('i');
+  //compare icon class lists to see if they are the same
+  if (firstCardClass.classList === secondCardClass.classList) //this won't work.  needs to be same data to make equal true not data that looks similar {
+    //add class to show they match
+    firstCard.classList.add('match');
+    secondCard.classList.add('match');
+    console.log(firstCard.classList);
+  } else {
+    //add eventlistener back to unmatched cards
+    firstCard.addEventListener('click', turnCard);
+    secondCard.addEventListener('click', turnCard);
+    //flip cards that do not match back over
+    firstCard.classList.remove('open', 'show');
+    secondCard.classList.remove('open', 'show');
+  }
+  //reset card counter
+  cardCount = 0;
 }
 
 
