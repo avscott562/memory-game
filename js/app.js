@@ -13,20 +13,24 @@
  var cards = document.querySelectorAll('.card');
  var firstCard;
  var secondCard;
+ var cardCount = 0;
 
 //need function to turn over card
 function turnCard() {
   if(!this.classList.contains('match' || 'open' || 'show')) {
     this.classList.add('open', 'show');
     this.removeEventListener('click', turnCard);
-    if(firstCard === ""){
+    console.log(cardCount)
+    if(cardCount === 0){
       firstCard = this;
-    } else {
-      secondCard = this;
+      cardCount = cardCount + 1;
+    } else if (cardCount === 1){
+      secondCard = this;      
     }
     console.log(this);
-    console.log("first card " + firstCard);
-    console.log("second card " + secondCard);
+    console.log(firstCard);
+    console.log(cardCount);
+    console.log(secondCard);
   }
 }
 
