@@ -10,12 +10,36 @@
  *   - add each card's HTML to the page
  */
 
- var cards = document.querySelectorAll('.card');
- var firstCard;
- var firstCardClass;
- var secondCard;
- var secondCardClass;
- var cardCount = 0;
+var cardIcons = ["fa-bomb", "fa-bomb", "fa-diamond", "fa-diamond",
+"fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor",
+"fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-bicycle",
+"fa-bicycle", "fa-leaf", "fa-leaf"];
+var deck = document.querySelector('.deck');
+var cards = document.querySelectorAll('.card');
+var firstCard;
+var firstCardClass;
+var secondCard;
+var secondCardClass;
+var cardCount = 0;
+
+//create cards
+function createCards() {
+  for(var i = 0; i < cardIcons.length; i++) {
+    var ele = document.createElement('li');
+    ele.classList.add('card');
+    var icon = document.createElement('i');
+    icon.classList.add('fa', cardIcons[i]);
+    ele.appendChild(icon);
+    deck.appendChild(ele);
+  }
+}
+
+createCards();
+
+//create gameboard
+function newGame() {
+
+}
 
 //function to turn over cards and log them
 function turnCard() {
@@ -41,13 +65,14 @@ function turnCard() {
 function compare() {
   //grab icon for each card
   firstCardClass = firstCard.querySelector('i');
-  secondCardClass = secondCard.querySelector('i');
+  //console.log(firstCardClass.classList);
+  //secondCardClass = secondCard.querySelector('i');
+  console.log(secondCardClass.classList);
   //compare icon class lists to see if they are the same
-  if (firstCardClass.classList === secondCardClass.classList) //this won't work.  needs to be same data to make equal true not data that looks similar {
+  if (firstCardClass.classList === secondCardClass.classList) { //this won't work.  needs to be same data to make equal true not data that looks similar
     //add class to show they match
     firstCard.classList.add('match');
     secondCard.classList.add('match');
-    console.log(firstCard.classList);
   } else {
     //add eventlistener back to unmatched cards
     firstCard.addEventListener('click', turnCard);
