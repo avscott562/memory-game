@@ -10,10 +10,10 @@
  *   - add each card's HTML to the page
  */
 
-var cardIcons = ["fa-bomb", "fa-bomb", "fa-diamond", "fa-diamond",
-"fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor",
-"fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-bicycle",
-"fa-bicycle", "fa-leaf", "fa-leaf"];
+var cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
+"fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor",
+"fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bicycle",
+"fa fa-bicycle", "fa fa-leaf", "fa fa-leaf"];
 var deck = document.querySelector('.deck');
 var cards = document.querySelectorAll('.card');
 var firstCard;
@@ -26,9 +26,9 @@ var cardCount = 0;
 function createCards() {
   for(var i = 0; i < cardIcons.length; i++) {
     var ele = document.createElement('li');
-    ele.classList.add('card');
+    ele.setAttribute('class', 'card');
     var icon = document.createElement('i');
-    icon.classList.add('fa', cardIcons[i]);
+    icon.setAttribute('class', cardIcons[i]);
     ele.appendChild(icon);
     deck.appendChild(ele);
   }
@@ -38,6 +38,8 @@ createCards();
 
 //create gameboard
 function newGame() {
+  shuffle(cardIcons);
+  createCards(cardIcons);
 
 }
 
