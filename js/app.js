@@ -15,6 +15,7 @@ var cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
 "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bicycle",
 "fa fa-bicycle", "fa fa-leaf", "fa fa-leaf"];
 var deck = document.querySelector('.deck');
+var restart = document.querySelector('.restart');
 var ele;
 var icon;
 var cards = document.querySelectorAll('.card');
@@ -41,7 +42,9 @@ function createCards() {
    });
 }
 
-newGame();
+//add eventlistener to start a new game
+restart.addEventListener('click', newGame)
+
 
 //create gameboard
 function newGame() {
