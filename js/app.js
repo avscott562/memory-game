@@ -49,7 +49,8 @@ function newGame() {
   createCards(cardIcons);
 }
 
-//function to turn over cards and log them
+
+//function to turn over unmatched cards
 function turnCard() {
   //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
@@ -82,7 +83,7 @@ function compare() {
     //add eventlistener back to unmatched cards
     firstCard.addEventListener('click', turnCard);
     secondCard.addEventListener('click', turnCard);
-    //flip cards that do not match back over
+    //flip cards back over that do not match
     firstCard.classList.remove('open', 'show');
     secondCard.classList.remove('open', 'show');
   }
@@ -108,8 +109,6 @@ function shuffle(array) {
 
 
 //need winner popup modal function
-
-//need restart button and function
 
 //need star rating function
 
