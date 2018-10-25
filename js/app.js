@@ -72,11 +72,6 @@ function turnCard() {
 
 //fuction to check if cards match
 function compare() {
-  //grab icon for each card
-  //firstCardClass = firstCard.querySelector('i');
-  //console.log(firstCardClass.classList);
-  //secondCardClass = secondCard.querySelector('i');
-  //console.log(secondCardClass.classList);
   //compare icon class lists to see if they are the same
   if (firstCard.innerHTML === secondCard.innerHTML) {
     //add class to show they match
