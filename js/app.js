@@ -15,6 +15,8 @@ var cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
 "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bicycle",
 "fa fa-bicycle", "fa fa-leaf", "fa fa-leaf"];
 var deck = document.querySelector('.deck');
+var ele;
+var icon;
 var cards = document.querySelectorAll('.card');
 var firstCard;
 var firstCardClass;
@@ -25,22 +27,26 @@ var cardCount = 0;
 //create cards
 function createCards() {
   for(var i = 0; i < cardIcons.length; i++) {
-    var ele = document.createElement('li');
-    ele.setAttribute('class', 'card');
-    var icon = document.createElement('i');
+    ele = document.createElement('li');
+    ele.classList.add('card');
+    icon = document.createElement('i');
     icon.setAttribute('class', cardIcons[i]);
     ele.appendChild(icon);
     deck.appendChild(ele);
   }
+  var cards = document.querySelectorAll('.card');
+  //add eventlistener to turn over card
+   cards.forEach(function(card) {
+     card.addEventListener('click', turnCard)
+   });
 }
 
-createCards();
+newGame();
 
 //create gameboard
 function newGame() {
   shuffle(cardIcons);
   createCards(cardIcons);
-
 }
 
 //function to turn over cards and log them
@@ -65,16 +71,13 @@ function turnCard() {
 
 //fuction to check if cards match
 function compare() {
-  //grab icon for each card
-  firstCardClass = firstCard.querySelector('i');
-  //console.log(firstCardClass.classList);
-  //secondCardClass = secondCard.querySelector('i');
-  console.log(secondCardClass.classList);
   //compare icon class lists to see if they are the same
-  if (firstCardClass.classList === secondCardClass.classList) { //this won't work.  needs to be same data to make equal true not data that looks similar
+  if (firstCard.innerHTML === secondCard.innerHTML) {
     //add class to show they match
     firstCard.classList.add('match');
+    firstCard.classList.remove('open', 'show');
     secondCard.classList.add('match');
+    secondCard.classList.remove('open', 'show');
   } else {
     //add eventlistener back to unmatched cards
     firstCard.addEventListener('click', turnCard);
@@ -86,12 +89,6 @@ function compare() {
   //reset card counter
   cardCount = 0;
 }
-
-
-//add eventlistener to turn over card
- cards.forEach(function(card) {
-   card.addEventListener('click', turnCard)
- });
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
