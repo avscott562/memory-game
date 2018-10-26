@@ -48,14 +48,17 @@ restart.addEventListener('click', newGame)
 
 shuffle(cardIcons);
 createCards();
-var children = deck.children;
-console.log(children.length);
+//var children = deck.children;
+//console.log(children.length);
 
 //create gameboard
 function newGame() {
-  for(i = 0; i < children.length; i++) {
-      deck.removeChild(children[i]);
-  }
+  //empty the deck
+  var children = deck.children;
+  console.log(children.length);
+  // for(i = 0; i < children.length; i++) {
+  //     deck.removeChild(children[i]);
+  // }
   //shuffle cards
   shuffle(cardIcons);
   //create deck
@@ -97,6 +100,9 @@ function compare() {
     secondCard.classList.remove('open', 'show');
     //increase matched cards count
     matchedCards = matchedCards + 2;
+    setTimeout(function() {
+      youWin()
+    }, 300);
   } else {
     //add delay to unmatched cards
     setTimeout(function() {
@@ -130,6 +136,11 @@ function shuffle(array) {
 
 
 //need winner popup modal function
+function youWin() {
+  if(matchedCards === 16) {
+    alert('Great Job!');
+  }
+}
 
 //need star rating function
 
