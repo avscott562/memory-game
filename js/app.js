@@ -24,6 +24,7 @@ var firstCardClass;
 var secondCard;
 var secondCardClass;
 var cardCount = 0;
+var matchedCards = 0;
 
 //create cards
 function createCards() {
@@ -55,9 +56,13 @@ function newGame() {
   for(i = 0; i < children.length; i++) {
       deck.removeChild(children[i]);
   }
+  //shuffle cards
   shuffle(cardIcons);
+  //create deck
   createCards(cardIcons);
-  console.log(children.length);
+  //reset card and matched cards count
+  cardCount = 0;
+  matchedCards = 0;
 }
 
 
@@ -85,11 +90,13 @@ function turnCard() {
 function compare() {
   //compare icon class lists to see if they are the same
   if (firstCard.innerHTML === secondCard.innerHTML) {
-    //add class to show they match
+    //add class to show they match and remove flip classes
     firstCard.classList.add('match');
     firstCard.classList.remove('open', 'show');
     secondCard.classList.add('match');
     secondCard.classList.remove('open', 'show');
+    //increase matched cards count
+    matchedCards = matchedCards + 2;
   } else {
     //add delay to unmatched cards
     setTimeout(function() {
