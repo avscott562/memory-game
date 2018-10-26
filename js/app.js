@@ -45,11 +45,19 @@ function createCards() {
 //add eventlistener to start a new game
 restart.addEventListener('click', newGame)
 
+shuffle(cardIcons);
+createCards();
+var children = deck.children;
+console.log(children.length);
 
 //create gameboard
 function newGame() {
+  for(i = 0; i < children.length; i++) {
+      deck.removeChild(children[i]);
+  }
   shuffle(cardIcons);
   createCards(cardIcons);
+  console.log(children.length);
 }
 
 
@@ -83,12 +91,15 @@ function compare() {
     secondCard.classList.add('match');
     secondCard.classList.remove('open', 'show');
   } else {
-    //add eventlistener back to unmatched cards
-    firstCard.addEventListener('click', turnCard);
-    secondCard.addEventListener('click', turnCard);
-    //flip cards back over that do not match
-    firstCard.classList.remove('open', 'show');
-    secondCard.classList.remove('open', 'show');
+    //add delay to unmatched cards
+    setTimeout(function() {
+      //add eventlistener back to unmatched cards
+      firstCard.addEventListener('click', turnCard);
+      secondCard.addEventListener('click', turnCard);
+      //flip cards back over that do not match
+      firstCard.classList.remove('open', 'show');
+      secondCard.classList.remove('open', 'show');
+    }, 1000);
   }
   //reset card counter
   cardCount = 0;
