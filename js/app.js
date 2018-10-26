@@ -48,17 +48,11 @@ restart.addEventListener('click', newGame)
 
 shuffle(cardIcons);
 createCards();
-//var children = deck.children;
-//console.log(children.length);
 
 //create gameboard
 function newGame() {
   //empty the deck
-  var children = deck.children;
-  console.log(children.length);
-  // for(i = 0; i < children.length; i++) {
-  //     deck.removeChild(children[i]);
-  // }
+  deck.innerHTML = "";
   //shuffle cards
   shuffle(cardIcons);
   //create deck
