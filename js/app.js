@@ -25,6 +25,7 @@ var cardCount = 0;
 var matchedCards = 0;
 var moves = 0;
 var movesDisplay = document.querySelector('.moves');
+var stars = document.getElementsByClassName('fa fa-star');
 
 //create cards
 function createCards() {
@@ -114,6 +115,7 @@ function compare() {
   cardCount = 0;
   //increment moves counter
   movesCounter()
+  ratingsCounter()
 }
 
 
@@ -142,12 +144,15 @@ function youWin() {
 
 //star rating function
 function ratingsCounter() {
-  if(moves < 12) {
-
-  } else if(moves >= 12 && moves < 16) {
-
-  } else {
-    
+  if(moves >= 12 && moves < 16) {
+    stars[2].style.display = 'none';
+  } else if(moves >= 16 && moves < 20){
+    stars[1].style.display = 'none';
+    stars[2].style.display = 'none';
+  } else if(moves >=20) {
+    stars[0].style.display = 'none';
+    stars[1].style.display = 'none';
+    stars[2].style.display = 'none';
   }
 }
 
