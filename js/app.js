@@ -28,6 +28,9 @@ var movesDisplay = document.querySelector('.moves');
 var stars = document.getElementsByClassName('fa fa-star');
 var timer = document.querySelector('.timer');
 var clock = 0;
+var min = 0;
+var sec = 0;
+var hasStarted = false;
 
 //create cards
 function createCards() {
@@ -52,7 +55,6 @@ restart.addEventListener('click', newGame)
 shuffle(cardIcons);
 createCards();
 timer.innerHTML = "0.00  ";
-startTimer();
 
 //create gameboard
 function newGame() {
@@ -68,11 +70,17 @@ function newGame() {
   moves = 0;
   movesDisplay.innerHTML = 0;
   timer.innerHTML = "0.00" + " ";
+  min = 0;
+  sec = 0;
 }
 
 
 //function to turn over unmatched cards
 function turnCard() {
+  //start timer
+  if(!hasStarted) {
+    startTimer();
+  }
   //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
     //flip card
@@ -163,6 +171,7 @@ function ratings() {
 
 //timer function to start clock
 function startTimer() {
+  hasStarted = true;
   setInterval(function() {
     clock = clock + 1;
     min = Math.floor(clock / 60);
