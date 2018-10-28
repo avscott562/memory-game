@@ -109,13 +109,13 @@ function compare() {
       //flip cards back over that do not match
       firstCard.classList.remove('open', 'show');
       secondCard.classList.remove('open', 'show');
-    }, 1000);
+    }, 1200);
   }
   //reset card counter
   cardCount = 0;
   //increment moves counter
   movesCounter()
-  ratingsCounter()
+  ratings()
 }
 
 
@@ -138,17 +138,17 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
-    alert('You won!  Great Job!');
+    alert('You won in ' + moves + ' moves!  Great Job!');
   }
 }
 
 //star rating function
-function ratingsCounter() {
+function ratings() {
   if(moves >= 12 && moves < 16) {
-    stars[2].style.display = 'none';
+    stars[0].style.display = 'none';
   } else if(moves >= 16 && moves < 20){
+    stars[0].style.display = 'none';
     stars[1].style.display = 'none';
-    stars[2].style.display = 'none';
   } else if(moves >=20) {
     stars[0].style.display = 'none';
     stars[1].style.display = 'none';

@@ -91,6 +91,12 @@ h1 {
     margin-bottom: 10px;
 }
 
+.score-panel .timer {
+    float: left;
+    margin: 0 5px 0 50px;
+    padding: 0;
+}
+
 .score-panel .stars {
     margin: 0;
     padding: 0;
