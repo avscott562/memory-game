@@ -140,11 +140,20 @@ function youWin() {
   }
 }
 
-//need star rating function
+//star rating function
+function ratingsCounter() {
+  if(moves < 12) {
+
+  } else if(moves >= 12 && moves < 16) {
+
+  } else {
+    
+  }
+}
 
 //need timer function to start and stop when game begins and ends
 
-//need move counter function
+//move counter function
 function movesCounter() {
   moves = moves + 1;
   movesDisplay.innerHTML = moves;
