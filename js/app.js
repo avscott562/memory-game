@@ -51,8 +51,8 @@ restart.addEventListener('click', newGame)
 
 shuffle(cardIcons);
 createCards();
-timer.innerHTML = "0.00" + " ";
-//startTimer();
+timer.innerHTML = "0.00  ";
+startTimer();
 
 //create gameboard
 function newGame() {
@@ -165,7 +165,13 @@ function ratings() {
 function startTimer() {
   setInterval(function() {
     clock = clock + 1;
-    timer.innerHTML = clock + " "
+    min = Math.floor(clock / 60);
+    sec = clock % 60;
+    if(sec < 10){
+      timer.innerHTML = min + ':0' + sec + ' ';
+    } else {
+      timer.innerHTML = min + ':' + sec + ' ';
+    }
   }, 1000);
 }
 
