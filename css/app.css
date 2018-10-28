@@ -93,7 +93,8 @@ h1 {
 
 .score-panel .timer {
     float: left;
-    margin: 0 5px 0 50px;
+    text-align: left;
+    margin: 0 0 0 10px;
     padding: 0;
 }
 

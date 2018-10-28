@@ -26,6 +26,8 @@ var matchedCards = 0;
 var moves = 0;
 var movesDisplay = document.querySelector('.moves');
 var stars = document.getElementsByClassName('fa fa-star');
+var timer = document.querySelector('.timer');
+var clock = 0;
 
 //create cards
 function createCards() {
@@ -49,6 +51,8 @@ restart.addEventListener('click', newGame)
 
 shuffle(cardIcons);
 createCards();
+timer.innerHTML = "0.00" + " ";
+//startTimer();
 
 //create gameboard
 function newGame() {
@@ -63,6 +67,7 @@ function newGame() {
   matchedCards = 0;
   moves = 0;
   movesDisplay.innerHTML = 0;
+  timer.innerHTML = "0.00" + " ";
 }
 
 
@@ -156,7 +161,18 @@ function ratings() {
   }
 }
 
-//need timer function to start and stop when game begins and ends
+//timer function to start clock
+function startTimer() {
+  setInterval(function() {
+    clock = clock + 1;
+    timer.innerHTML = clock + " "
+  }, 1000);
+}
+
+//timer function to stop clock
+function stopTimer() {
+
+}
 
 //move counter function
 function movesCounter() {
