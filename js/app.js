@@ -20,11 +20,11 @@ var ele;
 var icon;
 var cards = document.querySelectorAll('.card');
 var firstCard;
-var firstCardClass;
 var secondCard;
-var secondCardClass;
 var cardCount = 0;
 var matchedCards = 0;
+var moves = 0;
+var movesDisplay = document.querySelector('.moves');
 
 //create cards
 function createCards() {
@@ -60,6 +60,8 @@ function newGame() {
   //reset card and matched cards count
   cardCount = 0;
   matchedCards = 0;
+  moves = 0;
+  movesDisplay.innerHTML = 0;
 }
 
 
@@ -110,6 +112,8 @@ function compare() {
   }
   //reset card counter
   cardCount = 0;
+  //increment moves counter
+  movesCounter()
 }
 
 
@@ -132,7 +136,7 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
-    alert('Great Job!');
+    alert('You won!  Great Job!');
   }
 }
 
@@ -141,6 +145,10 @@ function youWin() {
 //need timer function to start and stop when game begins and ends
 
 //need move counter function
+function movesCounter() {
+  moves = moves + 1;
+  movesDisplay.innerHTML = moves;
+}
 
 
 /*
