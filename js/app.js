@@ -80,7 +80,7 @@ function newGame() {
 function turnCard() {
   //start timer
   if(!hasStarted) {
-    start();
+    startTimer();
   }
   //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
@@ -172,7 +172,7 @@ function ratings() {
 }
 
 //timer function to start clock
-var start = function startTimer() {
+var startTimer = function () {
   hasStarted = true;
   setInterval(function() {
     clock = clock + 1;
@@ -190,8 +190,7 @@ var start = function startTimer() {
 
 //timer function to stop clock
 function stopTimer() {
-  clearInterval(start);
-  hasStarted = false;
+  clearInterval(startTimer);  
 }
 
 //move counter function
