@@ -54,7 +54,7 @@ restart.addEventListener('click', newGame)
 
 shuffle(cardIcons);
 createCards();
-timer.innerHTML = "0.00  ";
+timer.innerHTML = "00.00  ";
 
 //create gameboard
 function newGame() {
@@ -69,9 +69,10 @@ function newGame() {
   matchedCards = 0;
   moves = 0;
   movesDisplay.innerHTML = 0;
-  timer.innerHTML = "0.00" + " ";
+  timer.innerHTML = "00.00" + " ";
   min = 0;
   sec = 0;
+  hasStarted = false;
 }
 
 
@@ -79,7 +80,7 @@ function newGame() {
 function turnCard() {
   //start timer
   if(!hasStarted) {
-    startTimer();
+    start();
   }
   //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
@@ -112,7 +113,7 @@ function compare() {
     matchedCards = matchedCards + 2;
     setTimeout(function() {
       youWin()
-    }, 300);
+    }, 400);
   } else {
     //add delay to unmatched cards
     setTimeout(function() {
@@ -122,7 +123,7 @@ function compare() {
       //flip cards back over that do not match
       firstCard.classList.remove('open', 'show');
       secondCard.classList.remove('open', 'show');
-    }, 1200);
+    }, 400);
   }
   //reset card counter
   cardCount = 0;
@@ -152,6 +153,7 @@ function shuffle(array) {
 function youWin() {
   if(matchedCards === 16) {
     alert('You won in ' + moves + ' moves!  Great Job!');
+    stopTimer()
   }
 }
 
@@ -170,23 +172,26 @@ function ratings() {
 }
 
 //timer function to start clock
-function startTimer() {
+var start = function startTimer() {
   hasStarted = true;
   setInterval(function() {
     clock = clock + 1;
     min = Math.floor(clock / 60);
+    if(min < 10) {
+      min = '0' + min;
+    };
     sec = clock % 60;
-    if(sec < 10){
-      timer.innerHTML = min + ':0' + sec + ' ';
-    } else {
-      timer.innerHTML = min + ':' + sec + ' ';
+    if(sec < 10) {
+      sec = '0' + sec;
     }
+    timer.innerHTML = min + ':' + sec + ' ';
   }, 1000);
 }
 
 //timer function to stop clock
 function stopTimer() {
-
+  clearInterval(start);
+  hasStarted = false;
 }
 
 //move counter function
