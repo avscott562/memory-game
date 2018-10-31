@@ -161,15 +161,11 @@ function youWin() {
 
 //star rating function
 function ratings() {
-  if(moves >= 12 && moves < 16) {
+  if(moves >= 12 && moves < 18) {
     stars[0].style.display = 'none';
-  } else if(moves >= 16 && moves < 20){
-    stars[0].style.display = 'none';
-    stars[1].style.display = 'none';
-  } else if(moves >=20) {
+  } else if(moves >= 18){
     stars[0].style.display = 'none';
     stars[1].style.display = 'none';
-    stars[2].style.display = 'none';
   }
 }
 
