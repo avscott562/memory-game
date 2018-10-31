@@ -69,6 +69,8 @@ function newGame() {
   matchedCards = 0;
   moves = 0;
   movesDisplay.innerHTML = 0;
+  //reset timer
+  stopTimer();
   timer.innerHTML = "00.00" + " ";
   min = 0;
   sec = 0;
