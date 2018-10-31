@@ -47,11 +47,12 @@ function createCards() {
 //add eventlistener to start a new game
 restart.addEventListener('click', newGame)
 
+//set up new game as page loads
 shuffle(cardIcons);
 createCards();
 timer.innerHTML = "00.00  ";
 
-//create gameboard
+//create new gameboard
 function newGame() {
   //empty the deck
   deck.innerHTML = "";
@@ -109,9 +110,27 @@ function turnCard() {
     }
   }
 }
+function disableClick () {
+  let cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    card.removeEventListener('click', turnCard)
+  });
+}
+
+function enableClick () {
+  let cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    if(!card.classList.contains('match')) {
+      card.addEventListener('click', turnCard);
+    }
+  });
+}
+
 
 //fuction to check if cards match
 function compare() {
+  //disable other cards from being clicked during comparison
+  disableClick()
   //compare icon class lists to see if they are the same
   if (firstCard.innerHTML === secondCard.innerHTML) {
     //add class to show they match and remove flip classes
@@ -127,13 +146,12 @@ function compare() {
   } else {
     //add delay to unmatched cards
     setTimeout(function() {
-      //add eventlistener back to unmatched cards
-      firstCard.addEventListener('click', turnCard);
-      secondCard.addEventListener('click', turnCard);
       //flip cards back over that do not match
       firstCard.classList.remove('open', 'show');
       secondCard.classList.remove('open', 'show');
     }, 400);
+    //add eventlistener back to unmatched cards
+    enableClick()
   }
   //reset card counter
   cardCount = 0;
