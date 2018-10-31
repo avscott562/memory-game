@@ -10,23 +10,20 @@
  *   - add each card's HTML to the page
  */
 
-let icons = ["fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o",
-"fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-bicycle", "fa fa-leaf"]
-let cardIcons = [...icons, ...icons];
+let cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
+"fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor",
+"fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bicycle",
+"fa fa-bicycle", "fa fa-leaf", "fa fa-leaf"];
 let deck = document.querySelector('.deck');
 let restart = document.querySelector('.restart');
-let ele;
-let icon;
+let ele, icon, firstCard, secondCard, startTimer;
 let cards = document.querySelectorAll('.card');
-let firstCard;
-let secondCard;
 let cardCount = 0;
 let matchedCards = 0;
 let moves = 0;
 let movesDisplay = document.querySelector('.moves');
 let stars = document.getElementsByClassName('fa fa-star');
 let timer = document.querySelector('.timer');
-let startTimer;
 let clock = 0;
 let min = 0;
 let sec = 0;
