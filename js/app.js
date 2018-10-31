@@ -10,31 +10,31 @@
  *   - add each card's HTML to the page
  */
 
-var cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
+let cardIcons = ["fa fa-bomb", "fa fa-bomb", "fa fa-diamond", "fa fa-diamond",
 "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor",
 "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-bicycle",
 "fa fa-bicycle", "fa fa-leaf", "fa fa-leaf"];
-var deck = document.querySelector('.deck');
-var restart = document.querySelector('.restart');
-var ele;
-var icon;
-var cards = document.querySelectorAll('.card');
-var firstCard;
-var secondCard;
-var cardCount = 0;
-var matchedCards = 0;
-var moves = 0;
-var movesDisplay = document.querySelector('.moves');
-var stars = document.getElementsByClassName('fa fa-star');
-var timer = document.querySelector('.timer');
-var clock = 0;
-var min = 0;
-var sec = 0;
-var hasStarted = false;
+let deck = document.querySelector('.deck');
+let restart = document.querySelector('.restart');
+let ele;
+let icon;
+let cards = document.querySelectorAll('.card');
+let firstCard;
+let secondCard;
+let cardCount = 0;
+let matchedCards = 0;
+let moves = 0;
+let movesDisplay = document.querySelector('.moves');
+let stars = document.getElementsByClassName('fa fa-star');
+let timer = document.querySelector('.timer');
+let clock = 0;
+let min = 0;
+let sec = 0;
+let hasStarted = false;
 
 //create cards
 function createCards() {
-  for(var i = 0; i < cardIcons.length; i++) {
+  for(let i = 0; i < cardIcons.length; i++) {
     ele = document.createElement('li');
     ele.classList.add('card');
     icon = document.createElement('i');
@@ -42,7 +42,7 @@ function createCards() {
     ele.appendChild(icon);
     deck.appendChild(ele);
   }
-  var cards = document.querySelectorAll('.card');
+  let cards = document.querySelectorAll('.card');
   //add eventlistener to turn over card
    cards.forEach(function(card) {
      card.addEventListener('click', turnCard)
@@ -172,7 +172,7 @@ function ratings() {
 }
 
 //timer function to start clock
-var startTimer = function () {
+let startTimer = function () {
   hasStarted = true;
   setInterval(function() {
     clock = clock + 1;
@@ -190,7 +190,7 @@ var startTimer = function () {
 
 //timer function to stop clock
 function stopTimer() {
-  clearInterval(startTimer);  
+  clearInterval(startTimer);
 }
 
 //move counter function
