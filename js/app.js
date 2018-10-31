@@ -27,6 +27,7 @@ let moves = 0;
 let movesDisplay = document.querySelector('.moves');
 let stars = document.getElementsByClassName('fa fa-star');
 let timer = document.querySelector('.timer');
+let startTimer;
 let clock = 0;
 let min = 0;
 let sec = 0;
@@ -67,6 +68,7 @@ function newGame() {
   //reset card and matched cards count
   cardCount = 0;
   matchedCards = 0;
+  //reset moves
   moves = 0;
   movesDisplay.innerHTML = 0;
   //reset timer
@@ -82,7 +84,19 @@ function newGame() {
 function turnCard() {
   //start timer
   if(!hasStarted) {
-    startTimer();
+    hasStarted = true;
+    setTimer = setInterval(function() {
+      clock = clock + 1;
+      min = Math.floor(clock / 60);
+      if(min < 10) {
+        min = '0' + min;
+      };
+      sec = clock % 60;
+      if(sec < 10) {
+        sec = '0' + sec;
+      };
+      timer.innerHTML = min + ':' + sec;
+    }, 1000);
   }
   //do not perform if card already flipped or matched
   if(!this.classList.contains('match' || 'open' || 'show')) {
@@ -169,22 +183,6 @@ function ratings() {
   }
 }
 
-//timer function to start clock
-let startTimer = function () {
-  hasStarted = true;
-  setInterval(function() {
-    clock = clock + 1;
-    min = Math.floor(clock / 60);
-    if(min < 10) {
-      min = '0' + min;
-    };
-    sec = clock % 60;
-    if(sec < 10) {
-      sec = '0' + sec;
-    }
-    timer.innerHTML = min + ':' + sec + ' ';
-  }, 1000);
-}
 
 //timer function to stop clock
 function stopTimer() {
