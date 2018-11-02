@@ -120,14 +120,18 @@ h1 {
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: top;
 }
 
-.modal-popup {
-  height: 300px;
+.mpopup {
+  height: 400px;
   width: 300px;
   background-color: #acfafb;
   position: relative;
-  padding: 20px;
+  top: 10%;
+  padding: 25px;
+  text-align: center;
 }
