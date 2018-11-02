@@ -114,3 +114,20 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.modal {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.modal-popup {
+  height: 300px;
+  width: 300px;
+  background-color: #acfafb;
+  position: relative;
+  padding: 20px;
+}
