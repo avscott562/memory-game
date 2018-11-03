@@ -14,7 +14,7 @@ let icons = ["fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o",
 let cardIcons = [...icons, ...icons];
 let deck = document.querySelector('.deck');
 let restart = document.querySelector('.restart');
-let ele, icon, firstCard, secondCard, startTimer;
+let ele, icon, firstCard, secondCard, timeClock;
 let cards = document.querySelectorAll('.card');
 let cardCount = 0;
 let matchedCards = 0;
@@ -88,7 +88,7 @@ function turnCard() {
   //start timer
   if(!hasStarted) {
     hasStarted = true;
-    setTimer = setInterval(function() {
+    timeClock = setInterval(function() {
       clock = clock + 1;
       min = Math.floor(clock / 60);
       if(min < 10) {
@@ -214,7 +214,7 @@ function ratings() {
 
 //timer function to stop clock
 function stopTimer() {
-  clearInterval(startTimer);
+  clearInterval(timeClock);
 }
 
 //move counter function
