@@ -29,6 +29,7 @@ let hasStarted = false;
 let modal = document.querySelector('.modal');
 let closeX = document.querySelector('.m-close');
 let mStop = document.getElementById('m-stop');
+let replay = document.getElementById('m-replay');
 
 //create cards
 function createCards() {
@@ -57,6 +58,8 @@ timer.innerHTML = "00.00  ";
 
 //create new gameboard
 function newGame() {
+  //close modal if open
+  closeModal()
   //empty the deck
   deck.innerHTML = "";
   //shuffle cards
@@ -68,7 +71,7 @@ function newGame() {
   matchedCards = 0;
   //reset moves
   moves = 0;
-  movesDisplay.innerHTML = 0;
+  movesDisplay.innerHTML = moves;
   //reset timer
   stopTimer();
   timer.innerHTML = "00.00" + " ";
@@ -208,6 +211,9 @@ function movesCounter() {
   moves = moves + 1;
   movesDisplay.innerHTML = moves;
 }
+
+//add click event to replay button
+replay.addEventListener('click', newGame);
 
 //add click event to close button and x
 closeX.addEventListener('click', closeModal);
