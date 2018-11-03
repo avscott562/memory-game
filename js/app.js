@@ -111,6 +111,7 @@ function turnCard() {
     }
   }
 }
+//function to disable clicking
 function disableClick () {
   let cards = document.querySelectorAll('.card');
   cards.forEach(function(card) {
@@ -118,20 +119,10 @@ function disableClick () {
   });
 }
 
-function enableClick () {
-  let cards = document.querySelectorAll('.card');
-  cards.forEach(function(card) {
-    if(!card.classList.contains('match')) {
-      card.addEventListener('click', turnCard);
-    }
-  });
-}
-
-
 //fuction to check if cards match
 function compare() {
   //disable other cards from being clicked during comparison
-  disableClick()
+  //disableClick()
   //compare icon class lists to see if they are the same
   if (firstCard.innerHTML === secondCard.innerHTML) {
     //add class to show they match and remove flip classes
@@ -149,10 +140,12 @@ function compare() {
     setTimeout(function() {
       //flip cards back over that do not match
       firstCard.classList.remove('open', 'show');
+      firstCard.addEventListener('click', turnCard);
       secondCard.classList.remove('open', 'show');
+      secondCard.addEventListener('click', turnCard);
     }, 400);
     //add eventlistener back to unmatched cards
-    enableClick()
+    //enableClick()
   }
   //reset card counter
   cardCount = 0;
@@ -161,6 +154,14 @@ function compare() {
   ratings()
 }
 
+function enableClick () {
+  let cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    if(!card.classList.contains('match')) {
+      card.addEventListener('click', turnCard);
+    }
+  });
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
