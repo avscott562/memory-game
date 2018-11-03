@@ -126,12 +126,23 @@ h1 {
   align-items: top;
 }
 
-.mpopup {
-  height: 400px;
+.m-popup {
+  height: 300px;
   width: 300px;
   background-color: #acfafb;
   position: relative;
   top: 10%;
   padding: 25px;
   text-align: center;
+}
+
+.m-button {
+  background-color: #d966ff;
+  color: white;
+  border-radius: 10px;
+}
+
+.m-button:hover {
+  background-color: #0000ff;
+  cursor: pointer;
 }
