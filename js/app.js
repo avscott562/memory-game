@@ -30,6 +30,7 @@ let modal = document.querySelector('.modal');
 let closeX = document.querySelector('.m-close');
 let mStop = document.getElementById('m-stop');
 let replay = document.getElementById('m-replay');
+let mMoves = document.getElementById('m-moves');
 
 //create cards
 function createCards() {
@@ -185,6 +186,7 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
+    mMoves.innerHTML = "Moves: " + moves;
     modal.style.display = 'block';
     //alert('You won in ' + moves + ' moves!  Great Job!');
     stopTimer()

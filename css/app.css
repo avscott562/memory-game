@@ -129,7 +129,7 @@ h1 {
 }
 
 .m-popup {
-  height: 20%;
+  height: content-box;
   width: 30%;
   background-color: #e6ffe6;
   position: relative;
@@ -141,11 +141,17 @@ h1 {
 }
 
 .m-headercontent {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
 }
 
 .m-close {
-  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
   color: #d1d1e0;
 }
 
@@ -154,18 +160,37 @@ h1 {
   cursor: pointer;
 }
 
+.m-header {
+  border-bottom: 2px dashed #ff8080;
+  padding-top: 10px;
+  margin: 5px 10px;
+}
+
+.m-statcontent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
+}
+
 .m-stats {
   display: block;
+  text-align: center;
 }
 
 .m-buttoncontent {
-  padding: 10px;
-  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
 }
 
 .m-button {
   background-color: #d966ff;
   border-radius: 10px;
+  height: 30px;
+  width: content-box;
 }
 
 .m-button:hover {
