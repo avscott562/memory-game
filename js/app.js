@@ -139,10 +139,8 @@ function compare() {
     //add delay to unmatched cards
     setTimeout(function() {
       //flip cards back over that do not match
-      firstCard.classList.remove('open', 'show');
-      firstCard.addEventListener('click', turnCard);
+      firstCard.classList.remove('open', 'show');      
       secondCard.classList.remove('open', 'show');
-      secondCard.addEventListener('click', turnCard);
     }, 400);
   }
   //add eventlistener back to unmatched cards
