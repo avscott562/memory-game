@@ -82,6 +82,10 @@ function newGame() {
   min = 0;
   sec = 0;
   hasStarted = false;
+  //rest stars
+  for(i = 0; i < 3; i++) {
+    stars[i].style.display = 'inline-block';
+  };
 }
 
 //function to turn over unmatched cards
