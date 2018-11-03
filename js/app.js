@@ -21,6 +21,7 @@ let matchedCards = 0;
 let moves = 0;
 let movesDisplay = document.querySelector('.moves');
 let stars = document.getElementsByClassName('fa fa-star');
+let starCount = 3;
 let timer = document.querySelector('.timer');
 let clock = 0;
 let min = 0;
@@ -31,6 +32,7 @@ let closeX = document.querySelector('.m-close');
 let mStop = document.getElementById('m-stop');
 let replay = document.getElementById('m-replay');
 let mMoves = document.getElementById('m-moves');
+let mRating = document.getElementById('m-rating');
 
 //create cards
 function createCards() {
@@ -187,6 +189,11 @@ function shuffle(array) {
 function youWin() {
   if(matchedCards === 16) {
     mMoves.innerHTML = "Moves: " + moves;
+    if(starCount === 1) {
+      mRating.innerHTML = "Rating: " + starCount + " Star";
+    } else {
+      mRating.innerHTML = "Rating: " + starCount + " Stars"
+    };
     modal.style.display = 'block';
     //alert('You won in ' + moves + ' moves!  Great Job!');
     stopTimer()
@@ -197,9 +204,11 @@ function youWin() {
 function ratings() {
   if(moves >= 12 && moves < 18) {
     stars[0].style.display = 'none';
+    starCount = 2;
   } else if(moves >= 18){
     stars[0].style.display = 'none';
     stars[1].style.display = 'none';
+    starCount = 1;
   }
 }
 
