@@ -9,24 +9,29 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+//card and gameboard variables
 let icons = ["fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o",
 "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-bicycle", "fa fa-leaf"]
 let cardIcons = [...icons, ...icons];
 let deck = document.querySelector('.deck');
-let restart = document.querySelector('.restart');
 let ele, icon, firstCard, secondCard, timeClock;
-let cards = document.querySelectorAll('.card');
 let cardCount = 0;
 let matchedCards = 0;
+let cards = document.querySelectorAll('.card');
+//move variables
 let moves = 0;
 let movesDisplay = document.querySelector('.moves');
+//ratings variables
 let stars = document.getElementsByClassName('fa fa-star');
 let starCount = 3;
+//timer variables
 let timer = document.querySelector('.timer');
 let clock = 0;
 let min = 0;
 let sec = 0;
 let hasStarted = false;
+//modal variables
 let modal = document.querySelector('.modal');
 let closeX = document.querySelector('.m-close');
 let mStop = document.getElementById('m-stop');
@@ -34,6 +39,8 @@ let replay = document.getElementById('m-replay');
 let mMoves = document.getElementById('m-moves');
 let mRating = document.getElementById('m-rating');
 let mTime = document.getElementById('m-time');
+//new game variable
+let restart = document.querySelector('.restart');
 
 //create cards
 function createCards() {
@@ -79,13 +86,15 @@ function newGame() {
   //reset timer
   stopTimer();
   timer.innerHTML = "00:00 has elapsed";
+  clock = 0;
   min = 0;
   sec = 0;
   hasStarted = false;
-  //rest stars
+  //reset stars
   for(i = 0; i < 3; i++) {
     stars[i].style.display = 'inline-block';
   };
+  starCount = 3
 }
 
 //function to turn over unmatched cards
@@ -240,15 +249,3 @@ mStop.addEventListener('click', closeModal);
 function closeModal() {
   modal.style.display = 'none';
 }
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
