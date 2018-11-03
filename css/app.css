@@ -122,7 +122,7 @@ h1 {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  display: block;
   justify-content: center;
   align-items: top;
   overflow: auto;
@@ -134,7 +134,7 @@ h1 {
   background-color: #e6ffe6;
   position: relative;
   top: 10%;
-  padding: 25px;
+  padding: 18px;
   margin: 10% auto;
   text-align: center;
   border-radius: 5px;
@@ -146,10 +146,21 @@ h1 {
 
 .m-close {
   text-align: right;
+  color: #d1d1e0;
+}
+
+.m-close:hover {
+  color: #000000;
+  cursor: pointer;
 }
 
 .m-stats {
   display: block;
+}
+
+.m-buttoncontent {
+  padding: 10px;
+  margin: auto;
 }
 
 .m-button {

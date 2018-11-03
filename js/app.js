@@ -27,6 +27,8 @@ let min = 0;
 let sec = 0;
 let hasStarted = false;
 let modal = document.querySelector('.modal');
+let closeX = document.querySelector('.m-close');
+let mStop = document.getElementById('m-stop');
 
 //create cards
 function createCards() {
@@ -75,7 +77,6 @@ function newGame() {
   hasStarted = false;
 }
 
-
 //function to turn over unmatched cards
 function turnCard() {
   //start timer
@@ -111,6 +112,7 @@ function turnCard() {
     }
   }
 }
+
 //function to disable clicking
 function disableClick () {
   let cards = document.querySelectorAll('.card');
@@ -139,7 +141,7 @@ function compare() {
     //add delay to unmatched cards
     setTimeout(function() {
       //flip cards back over that do not match
-      firstCard.classList.remove('open', 'show');      
+      firstCard.classList.remove('open', 'show');
       secondCard.classList.remove('open', 'show');
     }, 400);
   }
@@ -196,7 +198,6 @@ function ratings() {
   }
 }
 
-
 //timer function to stop clock
 function stopTimer() {
   clearInterval(startTimer);
@@ -206,6 +207,15 @@ function stopTimer() {
 function movesCounter() {
   moves = moves + 1;
   movesDisplay.innerHTML = moves;
+}
+
+//add click event to close button and x
+closeX.addEventListener('click', closeModal);
+mStop.addEventListener('click', closeModal);
+
+//function to closeModal
+function closeModal() {
+  modal.style.display = 'none';
 }
 
 
