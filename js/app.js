@@ -33,6 +33,7 @@ let mStop = document.getElementById('m-stop');
 let replay = document.getElementById('m-replay');
 let mMoves = document.getElementById('m-moves');
 let mRating = document.getElementById('m-rating');
+let mTime = document.getElementById('m-time');
 
 //create cards
 function createCards() {
@@ -57,7 +58,7 @@ restart.addEventListener('click', newGame)
 //set up new game as page loads
 shuffle(cardIcons);
 createCards();
-timer.innerHTML = "00.00  ";
+timer.innerHTML = "00:00 has elapsed";
 
 //create new gameboard
 function newGame() {
@@ -77,7 +78,7 @@ function newGame() {
   movesDisplay.innerHTML = moves;
   //reset timer
   stopTimer();
-  timer.innerHTML = "00.00" + " ";
+  timer.innerHTML = "00:00 has elapsed";
   min = 0;
   sec = 0;
   hasStarted = false;
@@ -98,7 +99,7 @@ function turnCard() {
       if(sec < 10) {
         sec = '0' + sec;
       };
-      timer.innerHTML = min + ':' + sec;
+      timer.innerHTML = min + ':' + sec + " has elapsed";
     }, 1000);
   }
   //do not perform if card already flipped or matched
@@ -188,6 +189,7 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
+    mTime.innerHTML = "Time: " + min + ':' + sec;
     mMoves.innerHTML = "Moves: " + moves;
     if(starCount === 1) {
       mRating.innerHTML = "Rating: " + starCount + " Star";
