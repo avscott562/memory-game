@@ -122,7 +122,7 @@ function disableClick () {
 //fuction to check if cards match
 function compare() {
   //disable other cards from being clicked during comparison
-  //disableClick()
+  disableClick()
   //compare icon class lists to see if they are the same
   if (firstCard.innerHTML === secondCard.innerHTML) {
     //add class to show they match and remove flip classes
@@ -144,9 +144,9 @@ function compare() {
       secondCard.classList.remove('open', 'show');
       secondCard.addEventListener('click', turnCard);
     }, 400);
-    //add eventlistener back to unmatched cards
-    //enableClick()
   }
+  //add eventlistener back to unmatched cards
+  enableClick()
   //reset card counter
   cardCount = 0;
   //increment moves counter
