@@ -26,6 +26,7 @@ let clock = 0;
 let min = 0;
 let sec = 0;
 let hasStarted = false;
+let modal = document.querySelector('.modal');
 
 //create cards
 function createCards() {
@@ -180,7 +181,8 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
-    alert('You won in ' + moves + ' moves!  Great Job!');
+    modal.style.display = 'block';
+    //alert('You won in ' + moves + ' moves!  Great Job!');
     stopTimer()
   }
 }

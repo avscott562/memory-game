@@ -120,29 +120,45 @@ h1 {
   width: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: top;
+  overflow: auto;
 }
 
 .m-popup {
-  height: 300px;
-  width: 300px;
-  background-color: #acfafb;
+  height: 20%;
+  width: 30%;
+  background-color: #e6ffe6;
   position: relative;
   top: 10%;
   padding: 25px;
+  margin: 10% auto;
   text-align: center;
+  border-radius: 5px;
+}
+
+.m-headercontent {
+  display: inline-block;
+}
+
+.m-close {
+  text-align: right;
+}
+
+.m-stats {
+  display: block;
 }
 
 .m-button {
   background-color: #d966ff;
-  color: white;
   border-radius: 10px;
 }
 
 .m-button:hover {
   background-color: #0000ff;
+  color: white;
   cursor: pointer;
 }
