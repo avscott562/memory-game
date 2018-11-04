@@ -1,17 +1,24 @@
 # Memory Game Project
+A game that tests your memory.  
 
 ## Table of Contents
 
 * [Instructions](#instructions)
+* [Contingencies](#contingencies)
 * [Contributing](#contributing)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Download the files from GitHub https://github.com/avscott562/memory-game.
+Open the 'index.html' file.
+Begin playing game.  You randomly flip over cards in pairs and see if the
+two cards match.  If they do, excellent!  On to the next pair.  If they don't, turn them back over.  Pick another pair of cards and see if those match and so forth.  As you go through the game, try to remember where the matching cards are so you can eventually match all of the cards.  The goal is to get all of the matches in the least amount of moves and in the least amount of time.
+Once all cards are matched, you've won!
+Close the game or play another round.
 
-To get started, open `js/app.js` and start building out the app's functionality
+##Contingencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+To run correctly, this website is contingent upon access to bootstrap font-awesome.
 
 ## Contributing
 
