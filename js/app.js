@@ -202,15 +202,14 @@ function shuffle(array) {
 //need winner popup modal function
 function youWin() {
   if(matchedCards === 16) {
-    mTime.innerHTML = "Time: " + min + ':' + sec;
-    mMoves.innerHTML = "Moves: " + moves;
+    mTime.innerHTML = min + ':' + sec;
+    mMoves.innerHTML = moves;
     if(starCount === 1) {
-      mRating.innerHTML = "Rating: " + starCount + " Star";
+      mRating.innerHTML = starCount + " Star";
     } else {
-      mRating.innerHTML = "Rating: " + starCount + " Stars"
+      mRating.innerHTML = starCount + " Stars"
     };
-    modal.style.display = 'block';
-    //alert('You won in ' + moves + ' moves!  Great Job!');
+    modal.style.display = 'block';    
     stopTimer()
   }
 }

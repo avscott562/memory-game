@@ -168,7 +168,7 @@ h1 {
 
 .m-statcontent {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px;
   margin: auto;
