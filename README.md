@@ -4,7 +4,7 @@ A game that tests your memory.
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contingencies](#contingencies)
+* [Dependencies](#Dependencies)
 * [Contributing](#contributing)
 
 ## Instructions
@@ -16,9 +16,9 @@ two cards match.  If they do, excellent!  On to the next pair.  If they don't, t
 Once all cards are matched, you've won!
 Close the game or play another round.
 
-##Contingencies
+##Dependencies
 
-To run correctly, this website is contingent upon access to bootstrap font-awesome.
+To run correctly, this website is contingent upon access to bootstrap, font-awesome, and JQuery.
 
 ## Contributing
 
